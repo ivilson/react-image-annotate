@@ -40,13 +40,13 @@ export const HistorySidebarBox = ({
   return (
     <ThemeProvider theme={theme}>
       <SidebarBoxContainer
-        title="History"
+        title="历史记录"
         icon={<HistoryIcon style={{ color: grey[700] }} />}
         expandedByDefault
       >
         <List>
           {history.length === 0 && (
-            <div className={classes.emptyText}>No History Yet</div>
+            <div className={classes.emptyText}>暂无记录</div>
           )}
           {history.map(({ name, time }, i) => (
             <ListItem button dense key={i}>

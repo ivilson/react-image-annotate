@@ -77,7 +77,7 @@ export const ClassSelectionMenu = ({
   return (
     <ThemeProvider theme={theme}>
       <SidebarBoxContainer
-        title="Classifications"
+        title="标签分类"
         subTitle=""
         icon={<BallotIcon style={{ color: muiColors.grey[700] }} />}
         expandedByDefault

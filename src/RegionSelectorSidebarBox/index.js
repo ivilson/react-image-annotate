@@ -175,7 +175,7 @@ export const RegionSelectorSidebarBox = ({
   return (
     <ThemeProvider theme={theme}>
       <SidebarBoxContainer
-        title="Regions"
+        title="区域"
         subTitle=""
         icon={<RegionIcon style={{ color: grey[700] }} />}
         expandedByDefault

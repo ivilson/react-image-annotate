@@ -269,12 +269,12 @@ export const MainLayout = ({
                 !hideClone &&
                   !nextImageHasRegions &&
                   activeImage.regions && { name: "Clone" },
-                !hideSettings && { name: "Settings" },
+                !hideSettings && { name: "设置" },
                 !hideFullScreen &&
                   (state.fullScreen
-                    ? { name: "Window" }
-                    : { name: "Fullscreen" }),
-                !hideSave && { name: "Save" },
+                    ? { name: "窗口" }
+                    : { name: "全屏" }),
+                !hideSave && { name: "保存" },
               ].filter(Boolean)}
               onClickHeaderItem={onClickHeaderItem}
               onClickIconSidebarItem={onClickIconSidebarItem}
@@ -286,25 +286,25 @@ export const MainLayout = ({
               iconSidebarItems={[
                 {
                   name: "select",
-                  helperText: "Select" + getHotkeyHelpText("select_tool"),
+                  helperText: "选择" + getHotkeyHelpText("select_tool"),
                   alwaysShowing: true,
                 },
                 {
                   name: "pan",
                   helperText:
-                    "Drag/Pan (right or middle click)" +
+                    "拖拽(右键或者中键)" +
                     getHotkeyHelpText("pan_tool"),
                   alwaysShowing: true,
                 },
                 {
                   name: "zoom",
                   helperText:
-                    "Zoom In/Out (scroll)" + getHotkeyHelpText("zoom_tool"),
+                    "缩放(滚轮)" + getHotkeyHelpText("zoom_tool"),
                   alwaysShowing: true,
                 },
                 {
                   name: "show-tags",
-                  helperText: "Show / Hide Tags",
+                  helperText: "显示/隐藏 标签",
                   alwaysShowing: true,
                 },
                 {
@@ -314,7 +314,7 @@ export const MainLayout = ({
                 {
                   name: "create-box",
                   helperText:
-                    "Add Bounding Box" +
+                    "矩形工具" +
                     getHotkeyHelpText("create_bounding_box"),
                 },
                 {
