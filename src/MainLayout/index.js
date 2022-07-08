@@ -259,8 +259,8 @@ export const MainLayout = ({
                 ) : null,
               ].filter(Boolean)}
               headerItems={[
-                !hidePrev && { name: "Prev" },
-                !hideNext && { name: "Next" },
+                !hidePrev && {key:'prev', name: "上一张" },
+                !hideNext && {key:'next',  name: "下一张" },
                 state.annotationType !== "video"
                   ? null
                   : !state.videoPlaying
@@ -269,12 +269,12 @@ export const MainLayout = ({
                 !hideClone &&
                   !nextImageHasRegions &&
                   activeImage.regions && { name: "Clone" },
-                !hideSettings && { name: "设置" },
+                !hideSettings && {key:'next',  name: "设置" },
                 !hideFullScreen &&
                   (state.fullScreen
                     ? { name: "窗口" }
                     : { name: "全屏" }),
-                !hideSave && { name: "保存" },
+                !hideSave && {key:'save',  name: "保存" },
               ].filter(Boolean)}
               onClickHeaderItem={onClickHeaderItem}
               onClickIconSidebarItem={onClickIconSidebarItem}
