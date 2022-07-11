@@ -27,7 +27,7 @@ import {
 import FullscreenIcon from "@mui/icons-material/Fullscreen"
 import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew"
 
-const faStyle = { marginTop: 4, width: 16, height: 16, marginBottom: 4 }
+const faStyle = { width: 16, height: 16, marginBottom: 'auto' }
 
 export const iconDictionary = {
   select: () => (
