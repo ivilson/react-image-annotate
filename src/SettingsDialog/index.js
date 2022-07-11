@@ -13,7 +13,7 @@ export const SettingsDialog = ({ open, onClose }) => {
   const settings = useSettings()
   return (
     <Dialog open={open || false} onClose={onClose}>
-      <DialogTitle>Settings</DialogTitle>
+      <DialogTitle>设置</DialogTitle>
       <DialogContent style={{ minWidth: 400 }}>
         <Survey
           variant="flat"
@@ -24,22 +24,22 @@ export const SettingsDialog = ({ open, onClose }) => {
             questions: [
               {
                 type: "boolean",
-                title: "Show Crosshairs",
+                title: "显示十字光标",
                 name: "showCrosshairs",
               },
               {
                 type: "boolean",
-                title: "Show Highlight Box",
+                title: "显示突出显示框",
                 name: "showHighlightBox",
               },
               {
                 type: "boolean",
-                title: "WASD Mode",
+                title: "WASD模式",
                 name: "wasdMode",
               },
               {
                 type: "dropdown",
-                title: "Video Playback Speed",
+                title: "视频播放速度",
                 name: "videoPlaybackSpeed",
                 defaultValue: "1x",
                 choices: ["0.25x", "0.5x", "1x", "2x"],
@@ -49,7 +49,7 @@ export const SettingsDialog = ({ open, onClose }) => {
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose}>Close</Button>
+        <Button onClick={onClose}>关闭</Button>
       </DialogActions>
     </Dialog>
   )

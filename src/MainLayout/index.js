@@ -207,9 +207,9 @@ export const MainLayout = ({
   })
 
   const onClickHeaderItem = useEventCallback((item) => {
-    if (item.name === "Fullscreen") {
+    if (item.key === "Fullscreen") {
       fullScreenHandle.enter()
-    } else if (item.name === "Window") {
+    } else if (item.key === "Window") {
       fullScreenHandle.exit()
     }
     dispatch({ type: "HEADER_BUTTON_CLICKED", buttonName: item.key })
