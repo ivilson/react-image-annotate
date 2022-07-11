@@ -55,6 +55,7 @@ type Props = {
   hideSettings?: boolean,
   hideFullScreen?: boolean,
   hideSave?: boolean,
+  iconDictionaryCst?: any,
 }
 
 export const Annotator = ({
@@ -99,6 +100,7 @@ export const Annotator = ({
   hideFullScreen,
   hideSave,
   allowComments,
+  iconDictionaryCst,
 }: Props) => {
   if (typeof selectedImage === "string") {
     selectedImage = (images || []).findIndex((img) => img.src === selectedImage)
@@ -179,7 +181,7 @@ export const Annotator = ({
   }, [selectedImage, state.images])
 
   if (!images && !videoSrc)
-    return 'Missing required prop "images" or "videoSrc"'
+    return '缺少必需的属性"images" or "videoSrc"'
 
   return (
     <SettingsProvider>
@@ -198,6 +200,7 @@ export const Annotator = ({
         hideSettings={hideSettings}
         hideFullScreen={hideFullScreen}
         hideSave={hideSave}
+        iconDictionaryCst={iconDictionaryCst}
       />
     </SettingsProvider>
   )

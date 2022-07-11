@@ -62,6 +62,7 @@ type Props = {
   onRegionClassAdded: () => {},
   hideHeader?: boolean,
   hideHeaderText?: boolean,
+  iconDictionaryCst?:any,
 }
 
 export const MainLayout = ({
@@ -79,6 +80,7 @@ export const MainLayout = ({
   hideSettings = false,
   hideFullScreen = false,
   hideSave = false,
+  iconDictionaryCst,
 }: Props) => {
   const classes = useStyles()
   const settings = useSettings()
@@ -210,7 +212,7 @@ export const MainLayout = ({
     } else if (item.name === "Window") {
       fullScreenHandle.exit()
     }
-    dispatch({ type: "HEADER_BUTTON_CLICKED", buttonName: item.name })
+    dispatch({ type: "HEADER_BUTTON_CLICKED", buttonName: item.key })
   })
 
   const debugModeOn = Boolean(window.localStorage.$ANNOTATE_DEBUG_MODE && state)
@@ -243,7 +245,7 @@ export const MainLayout = ({
           >
             <Workspace
               allowFullscreen
-              iconDictionary={iconDictionary}
+              iconDictionary={iconDictionaryCst?iconDictionaryCst:iconDictionary}
               hideHeader={hideHeader}
               hideHeaderText={hideHeaderText}
               headerLeftSide={[
@@ -259,22 +261,22 @@ export const MainLayout = ({
                 ) : null,
               ].filter(Boolean)}
               headerItems={[
-                !hidePrev && {key:'prev', name: "上一张" },
-                !hideNext && {key:'next',  name: "下一张" },
+                !hidePrev && {key:'Prev', name: "上一张" },
+                !hideNext && {key:'Next',  name: "下一张" },
                 state.annotationType !== "video"
                   ? null
                   : !state.videoPlaying
-                  ? { name: "Play" }
-                  : { name: "Pause" },
+                  ? { key:'Play',name: "播放" }
+                  : { key:'Pause',name: "暂停" },
                 !hideClone &&
                   !nextImageHasRegions &&
-                  activeImage.regions && { name: "Clone" },
-                !hideSettings && {key:'next',  name: "设置" },
+                  activeImage.regions && { key:'Clone',name: "克隆" },
+                !hideSettings && {key:'Settings',  name: "设置" },
                 !hideFullScreen &&
                   (state.fullScreen
-                    ? { name: "窗口" }
-                    : { name: "全屏" }),
-                !hideSave && {key:'save',  name: "保存" },
+                    ? { key:'Window',name: "窗口" }
+                    : { key:'Fullscreen',name: "全屏" }),
+                !hideSave && {key:'Save',  name: "保存" },
               ].filter(Boolean)}
               onClickHeaderItem={onClickHeaderItem}
               onClickIconSidebarItem={onClickIconSidebarItem}

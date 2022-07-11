@@ -5,9 +5,9 @@ import { setIn, updateIn, asMutable, without } from "seamless-immutable"
 import moment from "moment"
 
 const typesToSaveWithHistory = {
-  BEGIN_BOX_TRANSFORM: "Transform/Move Box",
-  BEGIN_MOVE_POINT: "Move Point",
-  DELETE_REGION: "Delete Region",
+  BEGIN_BOX_TRANSFORM: "变换/移动框",
+  BEGIN_MOVE_POINT: "移动点",
+  DELETE_REGION: "删除区域",
 }
 
 export const saveToHistory = (state: MainLayoutState, name: string) =>

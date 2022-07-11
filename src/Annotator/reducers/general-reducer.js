@@ -131,7 +131,7 @@ export default (state: MainLayoutState, action: Action) => {
       if (regionIndex === null) return state
       const oldRegion = activeImage.regions[regionIndex]
       if (oldRegion.cls !== action.region.cls) {
-        state = saveToHistory(state, "Change Region Classification")
+        state = saveToHistory(state, "更改区域分类")
         const clsIndex = state.regionClsList.indexOf(action.region.cls)
         if (clsIndex !== -1) {
           state = setIn(state, ["selectedCls"], action.region.cls)
@@ -139,10 +139,10 @@ export default (state: MainLayoutState, action: Action) => {
         }
       }
       if (!isEqual(oldRegion.tags, action.region.tags)) {
-        state = saveToHistory(state, "Change Region Tags")
+        state = saveToHistory(state, "更改区域标签")
       }
       if (!isEqual(oldRegion.comment, action.region.comment)) {
-        state = saveToHistory(state, "Change Region Comment")
+        state = saveToHistory(state, "更改区域注释")
       }
       return setIn(
         state,
@@ -154,8 +154,8 @@ export default (state: MainLayoutState, action: Action) => {
       if (!activeImage) return state
       const { delta } = action
       for (const key of Object.keys(delta)) {
-        if (key === "cls") saveToHistory(state, "Change Image Class")
-        if (key === "tags") saveToHistory(state, "Change Image Tags")
+        if (key === "cls") saveToHistory(state, "更改图像类型")
+        if (key === "tags") saveToHistory(state, "更改图像标签")
         state = setIn(state, [...pathToActiveImage, key], delta[key])
       }
       return state
@@ -209,7 +209,7 @@ export default (state: MainLayoutState, action: Action) => {
           null
         )
       } else {
-        state = saveToHistory(state, "Move Polygon Point")
+        state = saveToHistory(state, "移动多边形点")
       }
       return setIn(state, ["mode"], {
         mode: "MOVE_POLYGON_POINT",
@@ -220,7 +220,7 @@ export default (state: MainLayoutState, action: Action) => {
     case "BEGIN_MOVE_KEYPOINT": {
       const { region, keypointId } = action
       state = closeEditors(state)
-      state = saveToHistory(state, "Move Keypoint")
+      state = saveToHistory(state, "移动关键点")
       return setIn(state, ["mode"], {
         mode: "MOVE_KEYPOINT",
         regionId: region.id,
@@ -534,7 +534,7 @@ export default (state: MainLayoutState, action: Action) => {
 
       switch (state.selectedTool) {
         case "create-point": {
-          state = saveToHistory(state, "Create Point")
+          state = saveToHistory(state, "创建点")
           newRegion = {
             type: "point",
             x,
@@ -548,7 +548,7 @@ export default (state: MainLayoutState, action: Action) => {
           break
         }
         case "create-box": {
-          state = saveToHistory(state, "Create Box")
+          state = saveToHistory(state, "创建矩形")
           newRegion = {
             type: "box",
             x: x,
@@ -573,7 +573,7 @@ export default (state: MainLayoutState, action: Action) => {
         }
         case "create-polygon": {
           if (state.mode && state.mode.mode === "DRAW_POLYGON") break
-          state = saveToHistory(state, "Create Polygon")
+          state = saveToHistory(state, "创建多边形")
           newRegion = {
             type: "polygon",
             points: [
@@ -593,7 +593,7 @@ export default (state: MainLayoutState, action: Action) => {
           break
         }
         case "create-expanding-line": {
-          state = saveToHistory(state, "Create Expanding Line")
+          state = saveToHistory(state, "创建展开线")
           newRegion = {
             type: "expanding-line",
             unfinished: true,
@@ -612,7 +612,7 @@ export default (state: MainLayoutState, action: Action) => {
         }
         case "create-line": {
           if (state.mode && state.mode.mode === "DRAW_LINE") break
-          state = saveToHistory(state, "Create Line")
+          state = saveToHistory(state, "创建线")
           newRegion = {
             type: "line",
             x1: x,
@@ -632,7 +632,7 @@ export default (state: MainLayoutState, action: Action) => {
           break
         }
         case "create-keypoints": {
-          state = saveToHistory(state, "Create Keypoints")
+          state = saveToHistory(state, "创建关键点")
           const [[keypointsDefinitionId, { landmarks, connections }]] =
             (Object.entries(state.keypointDefinitions): any)
 
