@@ -16,7 +16,13 @@ import {
   faSearch,
   faMask,
   faEdit,
+  faSave,
   faChartLine,
+  faAngleRight,
+  faAngleLeft,
+  faCopy,
+  faCog,
+  faWindowRestore
 } from "@fortawesome/free-solid-svg-icons"
 import FullscreenIcon from "@mui/icons-material/Fullscreen"
 import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew"
@@ -37,6 +43,27 @@ export const iconDictionary = {
   ),
   zoom: () => (
     <FontAwesomeIcon style={faStyle} size="xs" fixedWidth icon={faSearch} />
+  ),
+  "上一张": () => (
+    <FontAwesomeIcon style={faStyle} size="xs" fixedWidth icon={faAngleLeft} />    
+  ),
+  "下一张": () => (
+    <FontAwesomeIcon style={faStyle} size="xs" fixedWidth icon={faAngleRight} />    
+  ),
+  "克隆": () => (
+    <FontAwesomeIcon style={faStyle} size="xs" fixedWidth icon={faCopy} />    
+  ),
+  "设置": () => (
+    <FontAwesomeIcon style={faStyle} size="xs" fixedWidth icon={faCog} />    
+  ),
+  "全屏": () => (
+    <FontAwesomeIcon style={faStyle} size="xs" fixedWidth icon={faExpandArrowsAlt} />    
+  ),
+  "窗口": () => (
+    <FontAwesomeIcon style={faStyle} size="xs" fixedWidth icon={faWindowRestore} />    
+  ),
+  "保存": () => (
+    <FontAwesomeIcon style={faStyle} size="xs" fixedWidth icon={faSave} />    
   ),
   "show-tags": () => (
     <FontAwesomeIcon style={faStyle} size="xs" fixedWidth icon={faTag} />

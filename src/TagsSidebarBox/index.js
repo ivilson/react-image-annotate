@@ -53,7 +53,7 @@ export const TagsSidebarBox = ({
 
   return (
     <SidebarBoxContainer
-      title="Image Tags"
+      title="图片标签"
       expandedByDefault
       noScroll
       icon={<StyleIcon style={{ color: grey[700] }} />}
@@ -61,7 +61,7 @@ export const TagsSidebarBox = ({
       {imageClsList.length > 0 && (
         <div style={{ padding: 8 }}>
           <Select
-            placeholder="Image Classification"
+            placeholder="图片分类"
             onChange={onChangeClassification}
             value={selectValue}
             options={memoImgClsList}
@@ -72,7 +72,7 @@ export const TagsSidebarBox = ({
         <div style={{ padding: 8, paddingTop: 0 }}>
           <Select
             isMulti
-            placeholder="Image Tags"
+            placeholder="图片标签"
             onChange={onChangeTags}
             value={memoCurrentTags}
             options={memoImgTagList}
