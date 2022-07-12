@@ -322,28 +322,28 @@ export const MainLayout = ({
                 {
                   name: "create-polygon",
                   helperText:
-                    "Add Polygon" + getHotkeyHelpText("create_polygon"),
+                    "多边形工具" + getHotkeyHelpText("create_polygon"),
                 },
                 {
                   name: "create-line",
-                  helperText: "Add Line",
+                  helperText: "画线工具",
                 },
                 {
                   name: "create-expanding-line",
-                  helperText: "Add Expanding Line",
+                  helperText: "添加展开线",
                 },
                 {
                   name: "create-keypoints",
-                  helperText: "Add Keypoints (Pose)",
+                  helperText: "添加关键点",
                 },
                 state.fullImageSegmentationMode && {
                   name: "show-mask",
                   alwaysShowing: true,
-                  helperText: "Show / Hide Mask",
+                  helperText: "显示/隐藏 遮罩",
                 },
                 {
                   name: "modify-allowed-area",
-                  helperText: "Modify Allowed Area",
+                  helperText: "修改允许区域",
                 },
               ]
                 .filter(Boolean)
