@@ -17,6 +17,7 @@ jobs:
         with:
           node-version: 16
       - run: npm ci --legacy-peer-deps
+      - run: npm install --save-dev @babel/core @babel/cli
 
   publish-npm:
     needs: build
@@ -27,7 +28,7 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: ./src --ignore \"src/**/*.story.js\" --out-dir=./dist && rm dist/index.js && cp dist/lib.js dist/index.js      
+      - run: NODE_ENV=production babel ./src --ignore \"src/**/*.story.js\" --out-dir=./dist && rm dist/index.js && cp dist/lib.js dist/index.js      
       - run: cp ./package.json ./dist/package.json && cp ./README.md ./dist/README.md
       - run: cd dist && npm publish
         env:
