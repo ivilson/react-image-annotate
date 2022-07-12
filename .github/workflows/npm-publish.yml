@@ -27,7 +27,8 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm run build:babel && cp ./package.json ./dist/package.json && cp ./README.md ./dist/README.md
+      - run: NODE_ENV=production babel ./src --ignore \"src/**/*.story.js\" --out-dir=./dist && rm dist/index.js && cp dist/lib.js dist/index.js      
+      - run: cp ./package.json ./dist/package.json && cp ./README.md ./dist/README.md
       - run: cd dist && npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPMTOKEN}}
