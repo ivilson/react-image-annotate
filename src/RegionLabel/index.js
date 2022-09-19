@@ -55,6 +55,20 @@ export const RegionLabel = ({
 
     if (commentInput) return commentInput.focus()
   }
+  const getTypeCn = (t) => {
+    switch(t){
+      case 'box':
+        return '矩形';
+        case 'polygon':
+          return '多边形';
+          case 'line':
+            return '线';
+            case 'point':
+              return '点';
+        default:
+          return t;
+    }
+  }
 
   return (
     <ThemeProvider theme={theme}>
@@ -101,7 +115,7 @@ export const RegionLabel = ({
                   textShadow: "0px 0px 5px rgba(0,0,0,0.4)",
                 }}
               >
-                {region.type}
+                {getTypeCn(region.type)}
               </div>
               <div style={{ flexGrow: 1 }} />
               <IconButton
@@ -117,7 +131,7 @@ export const RegionLabel = ({
             {(allowedClasses || []).length > 0 && (
               <div style={{ marginTop: 6 }}>
                 <CreatableSelect
-                  placeholder="Classification"
+                  placeholder="请选择标签"
                   onChange={(o, actionMeta) => {
                     if (actionMeta.action == "create-option") {
                       onRegionClassAdded(o.value)

@@ -61,7 +61,7 @@ export const TagsSidebarBox = ({
       {imageClsList.length > 0 && (
         <div style={{ padding: 8 }}>
           <Select
-            placeholder="图片分类"
+            placeholder="请选择标签"
             onChange={onChangeClassification}
             value={selectValue}
             options={memoImgClsList}
